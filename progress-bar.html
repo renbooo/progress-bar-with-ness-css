@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progress Bar with NESS.css</title>
+	<link rel="stylesheet" type="text/css" href="node_modules/nes.css/css/nes.min.css">
+	<style>
+	#progressBar {
+	  width: 0%;
+	}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<div id="progressBar">
+			<progress class="nes-progress" value="100"></progress>
+			<progress class="nes-progress is-primary" value="100"></progress>
+			<progress class="nes-progress is-success" value="100"></progress>
+			<progress class="nes-progress is-warning" value="100"></progress>
+			<progress class="nes-progress is-error" value="100"></progress>
+			<progress class="nes-progress is-pattern" value="100"></progress>
+		</div>
+	</div>
+	<a class="nes-btn" onclick="runBar()">Run</a>
+	<script type="text/javascript">
+		function runBar() {
+		  var elem = document.getElementById("progressBar"); 
+		  var width = 1;
+		  var id = setInterval(frame, 20);
+		  function frame() {
+		    if (width >= 100) {
+		      clearInterval(id);
+		    } else {
+		      width++; 
+		      elem.style.width = width + '%'; 
+		    }
+		  }
+		}
+	</script>
+</body>
+</html>
